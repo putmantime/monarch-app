@@ -102,7 +102,55 @@ export function getNodeAssociations(nodeType, identifier, biolinkAnnotationSuffi
   return returnedPromise;
 }
 
-
+export function getNodeLabelByCurie(curie) {
+  const baseUrl = `https://api-dev.monarchinitiative.org/api/bioentity/${curie}`;
+  const params = {
+    fetch_objects: true,
+    rows: 100,
+  };
+  const returnedPromise = new Promise((resolve, reject) => {
+    axios.get(baseUrl, { params })
+      .then(resp => {
+        const responseData = resp;
+        if (typeof responseData !== 'object') {
+          reject(responseData);
+        }
+        else {
+          resolve(responseData);
+        }
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+  return returnedPromise;
+}
+export function comparePhenotypes(phenotypesList) {
+  let baseUrl = 'https://beta.monarchinitiative.org/analyze/phenotypes.json?input_items=';
+  const phenoCuries = [];
+  phenotypesList.forEach((elem) => {
+    phenoCuries.push(elem.curie);
+  });
+  baseUrl = `${baseUrl}${phenoCuries.join('+')}`;
+  const returnedPromise = new Promise((resolve, reject) => {
+    axios.get(baseUrl)
+      .then(resp => {
+        const responseData = resp;
+        if (typeof responseData !== 'object') {
+          reject(responseData);
+        }
+        else {
+          resolve(responseData);
+        }
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+  return returnedPromise;
+}
+// 'https://beta.monarchinitiative.org/analyze/phenotypes.json?input_items=MP:0000788+MP:0000914'
+// 'https://api-dev.monarchinitiative.org/api/bioentity/NCBIGene%3A84570?fetch_objects=true&rows=100'
 /*
   might be useful, probably should be deleted and reinvented.
   Basically calls scigraph directly instead of using the webapp response.
