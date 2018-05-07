@@ -22,6 +22,7 @@ import MonarchAutocomplete from '@/components/MonarchAutocomplete.vue';
 import ExacGeneSummary from '@/components/ExacGeneSummary.vue';
 import ExacVariantTable from '@/components/ExacVariantTable.vue';
 import AnalyzePhenotypes from '@/components/AnalyzePhenotypes.vue';
+import PhenotypesTable from '@/components/PhenotypesTable.vue';
 
 
 
@@ -116,6 +117,7 @@ const main = () => {
   Vue.component('exac-gene', ExacGeneSummary);
   Vue.component('exac-variant', ExacVariantTable);
   Vue.component('analyze-phenotypes', AnalyzePhenotypes);
+  Vue.component('phenotypes-table', PhenotypesTable);
 
   const availableCardTypes = [
     'anatomy',

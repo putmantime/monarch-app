@@ -175,11 +175,10 @@
       </div>
       <div class="col-1"></div>
     </div>
-    <div class="row my-3" v-show="phenoCompData">
+    <div class="row my-3" v-if="launchPhenotypesTable">
       <div class="col-1"></div>
       <div class="col-10 card">
-        <
-        <pre>{{phenoCompData}}</pre>
+        <phenotypes-table :phenotypes="phenotypes"></phenotypes-table>
       </div>
       <div class="col-1"></div>
     </div>
@@ -192,7 +191,7 @@ export default {
   name: 'AnalyzePhenotypes',
   data() {
     return {
-      phenoCompData: '',
+      launchPhenotypesTable: false,
       rejectedPhenotypeCuries: [],
       showDismissibleAlert: false,
       showPhenogrid: false,
@@ -274,17 +273,6 @@ export default {
         console.log('BioLink Error', e);
       }
     },
-    async comparePhenotypes(phenotypesList) {
-      const that = this;
-      try {
-        let searchResponse = await MA.comparePhenotypes(this.phenotypes);
-        this.phenoCompData = searchResponse;
-      }
-      catch (e) {
-        that.dataError = e;
-        console.log('BioLink Error', e);
-      }
-    },
     popPhenotype(ind) {
       this.phenotypes.splice(ind, 1);
     },
@@ -341,7 +329,7 @@ export default {
       });
     },
     launchPhenogrid() {
-      this.comparePhenotypes(this.phenotypes);
+      this.launchPhenotypesTable = true;
       this.showPhenogrid = true;
       this.yAxis = [];
       this.xAxis = [];
