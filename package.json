@@ -136,6 +136,7 @@
     "request": "^2.85.0",
     "underscore": "^1.8.3",
     "vue": "^2.5.16",
+    "vue-form-wizard": "^0.8.4",
     "vue-good-table": "^1.19.2",
     "vue-router": "^3.0.1",
     "wait.for": "^0.6.6",
