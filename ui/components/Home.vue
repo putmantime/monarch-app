@@ -22,10 +22,6 @@
             </p>
             <monarch-autocomplete homeSearch="true">
             </monarch-autocomplete>
-            <!--<p class="search-examples-text">-->
-              <!--Examples: <i>Marfan Syndrome</i> <i>sox3</i>-->
-            <!--</p>-->
-
             <a href="#footer-fake" class="btn btn-circle page-scroll">
               <i class="fa fa-angle-double-down animated"></i>
             </a>
@@ -123,7 +119,7 @@
             </a>
           </div>
         </div>
-        <div class="col-6 col-md-3">  
+        <div class="col-6 col-md-3">
           <div class="media">
             <a target="_blank" href="https://www.garvan.org.au/"><span class="network-name"></span>
             <img class="mr-3"
