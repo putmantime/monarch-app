@@ -91,6 +91,7 @@
 <script type="text/babel">
 import * as MA from '../../js/MonarchAccess';
 const debounce = require('lodash/debounce');
+
 export default {
   name: 'AutoComplete',
   props: {
