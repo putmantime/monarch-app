@@ -158,15 +158,15 @@ const main = () => {
         name: 'Home',
         component: Home
       },
-      // {
-      //   path: '/*',
-      //   name: 'MonarchLegacy',
-      //   component: MonarchLegacy
-      // },
       {
         path: '/analyze/phenotypes',
         name: 'AnalyzePhenotypes',
         component: AnalyzePhenotypes
+      },
+      {
+        path: '/*',
+        name: 'MonarchLegacy',
+        component: MonarchLegacy
       },
     ]
   });
